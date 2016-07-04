@@ -20,7 +20,13 @@ namespace RockPaperScissors
 
         static void Main(string[] args)
         {
-            if (AIPlayers.Count < 1)
+            if (Console.BackgroundColor == ConsoleColor.Black)
+            {
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Clear();
+            }
+                if (AIPlayers.Count < 1)
             {
                 Console.WriteLine("No AI players exist!");
                 Console.ReadKey();
