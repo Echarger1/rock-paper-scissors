@@ -9,6 +9,8 @@ namespace RockPaperScissors
     class ShortAttentionSpanAI : IPlayer
     {
         int lastMove;
+        Random Random = new Random();
+        int randommove;
         public int NextMove()
         {
             
@@ -20,7 +22,11 @@ namespace RockPaperScissors
             {
                 return 2;
             }
-            else return 0;
+            else
+            {
+                randommove = Random.Next(0, 3); ;
+            }
+            return randommove;
         }
 
         public void SaveResult(int myMove, int otherMove)
