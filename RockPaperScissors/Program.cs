@@ -23,7 +23,7 @@ namespace RockPaperScissors
             if (Console.BackgroundColor == ConsoleColor.Black)
             {
                 Console.BackgroundColor = ConsoleColor.DarkBlue;
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.Clear();
             }
             if (AIPlayers.Count < 1)
@@ -147,12 +147,28 @@ namespace RockPaperScissors
             }
             catch (Exception e)
             {
-                aiChoice = 1;
+                aiChoice = 2;
                 Console.WriteLine(e);
                 Console.WriteLine("Enter a valid number");
 
             }
-            return AIPlayers.Keys.ElementAt(aiChoice - 1);
+            if(aiChoice == 1)
+            {
+                return AIPlayers.Keys.ElementAt(aiChoice - 1);
+            }
+            else if(aiChoice == 2)
+            {
+                return AIPlayers.Keys.ElementAt(aiChoice - 1);
+            }
+            else if(aiChoice == 3)
+            {
+                return AIPlayers.Keys.ElementAt(aiChoice - 1);
+            }
+            else
+            {
+                Console.WriteLine("Not a vaild number");
+            }
+            return "yolo";
         }
 
         static void HumanVsAI()
