@@ -22,11 +22,11 @@ namespace RockPaperScissors
         {
             if (Console.BackgroundColor == ConsoleColor.Black)
             {
-                Console.BackgroundColor = ConsoleColor.Green;
+                Console.BackgroundColor = ConsoleColor.DarkBlue;
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Clear();
             }
-                if (AIPlayers.Count < 1)
+            if (AIPlayers.Count < 1)
             {
                 Console.WriteLine("No AI players exist!");
                 Console.ReadKey();
@@ -38,8 +38,21 @@ namespace RockPaperScissors
                 Console.WriteLine("2. AI vs AI");
                 Console.WriteLine("3. Quit");
                 Console.Write("> ");
-                int choice = Convert.ToInt32(Console.ReadLine());
 
+                int choice;
+
+                try
+                {
+                    choice = Convert.ToInt32(Console.ReadLine());
+
+                }
+                catch (Exception e)
+                {
+                    choice = -1;
+                    Console.WriteLine(e);
+                    Console.WriteLine("Enter a valid number");
+
+                }
                 if (choice == 1)
                 {
                     HumanVsAI();
@@ -52,6 +65,7 @@ namespace RockPaperScissors
                 {
                     break;
                 }
+
             }
         }
 
@@ -76,7 +90,7 @@ namespace RockPaperScissors
         }
 
 
-        static int[,] winnerMatrix = 
+        static int[,] winnerMatrix =
         {  // R  P  S p1 // p2
             { 0, 1, 2 }, // R
             { 2, 0, 1 }, // P
@@ -125,7 +139,19 @@ namespace RockPaperScissors
             }
 
             Console.Write("> ");
-            int aiChoice = Convert.ToInt32(Console.ReadLine());
+            int aiChoice;
+            try
+            {
+                aiChoice = Convert.ToInt32(Console.ReadLine());
+
+            }
+            catch (Exception e)
+            {
+                aiChoice = 1;
+                Console.WriteLine(e);
+                Console.WriteLine("Enter a valid number");
+
+            }
             return AIPlayers.Keys.ElementAt(aiChoice - 1);
         }
 
