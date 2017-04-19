@@ -197,8 +197,19 @@ namespace RockPaperScissors
             string chosenAI2 = SelectAI();
 
             Console.Write("How many games? ");
-            int numberOfGames = Convert.ToInt32(Console.ReadLine());
+            int numberOfGames;
+            try
+            {
+                numberOfGames = Convert.ToInt32(Console.ReadLine());
 
+            }
+            catch (Exception e)
+            {
+                numberOfGames = -1;
+                Console.WriteLine(e);
+                Console.WriteLine("Enter a valid number");
+
+            }
             int ai1Wins = 0;
             int ai2Wins = 0;
             int ties = 0;
