@@ -12,21 +12,21 @@ namespace RockPaperScissors
         {
             while (true)
             {
-                Console.Write("Enter R, P, or S (Q to quit): ");
-                string choice = Console.ReadLine().ToUpper();
-                if (choice == "R")
+                Console.Write("Enter r for rock, p for paper, or s for scissors (q to quit): ");
+                string choice = Console.ReadLine().ToLower();
+                if (choice == "r")
                 {
                     return 0;
                 }
-                if (choice == "P")
+                if (choice == "p")
                 {
                     return 1;
                 }
-                if (choice == "S")
+                if (choice == "s")
                 {
                     return 2;
                 }
-                if (choice == "Q")
+                if (choice == "q")
                 {
                     return -1;
                 }
